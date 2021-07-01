@@ -1,9 +1,32 @@
 # kernel-devel
 - How to develop a kernel module.
 
+## Index
+- [Red Hat Enterprise Linux](#red-hat-enterprise-linux)
+- [AlmaLinux](#almalinux)
+- [SUSE Enterprise Linux](#suse-enterprise-linux)
+- [Ubuntu](#ubuntu)
+- [Link](#link)
+
 ## Red Hat Enterprise Linux
 ### Red Hat Enterprise Linux 8
 - FIXME 
+
+## AlmaLinux
+### AlmaLinux 8
+1. Run the following command.
+   ```sh
+   dnf install gcc
+   dnf install make
+   dnf install kernel-devel
+   dnf install elfutils-libelf-devel
+   ```
+1. Save the source files.
+1. Edit Makefile as below.
+   ```
+   $(MAKE) -C /lib/modules/$(shell uname -r)/build SUBDIRS=$(shell pwd) module
+   ```
+1. Run make command.
 
 ## SUSE Enterprise Linux
 ### SUSE Enterprise Linux 15
@@ -32,7 +55,12 @@
    ```
    $(MAKE) -C /lib/modules/$(shell uname -r)/build M=$(shell pwd) modules
    ```
+1. Run make command.
 
 ## Ubuntu
-### Ubuntu 20
+### Ubuntu 20.04
 - FIXME
+
+## Link
+- The Linux Kernel Module Programming Guide
+  - https://tldp.org/LDP/lkmpg/2.6/html/index.html
