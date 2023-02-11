@@ -3,7 +3,8 @@
 
 ## Index
 - [AlmaLinux](#almalinux)
-- [openSUE](#opensuse)
+- [MIRACLE LINUX](#miracle-linux)
+- [openSUSE](#opensuse)
 - [Red Hat Enterprise Linux](#red-hat-enterprise-linux)
 - [SUSE Enterprise Linux](#suse-enterprise-linux)
 - [Ubuntu](#ubuntu)
@@ -24,6 +25,16 @@
    $(MAKE) -C /lib/modules/$(shell uname -r)/build SUBDIRS=$(shell pwd) module
    ```
 1. Run make command.
+
+## MIRACLE LINUX
+### MIRACLE LINUX 9
+1. Run the following command.
+   ```sh
+   dnf install gcc
+   dnf install make
+   dnf install kernel-devel
+   dnf install elfutils-libelf-devel
+   ```
 
 ## openSUSE
 ### openSUSE Leap 15.4
