@@ -120,7 +120,7 @@
 
 ## Ubuntu
 ### Ubuntu 22.04
-- I cannot find kernel-package...
+- FIXME
 <!--
 1. Install
    ```
