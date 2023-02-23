@@ -130,4 +130,7 @@
 -->
 ## Link
 - The Linux Kernel Module Programming Guide
-  - https://tldp.org/LDP/lkmpg/2.6/html/index.html
+  - For kernerl version 5.x
+    - https://sysprog21.github.io/lkmpg/
+  - For kernel version version is earlier than 5.x
+    - https://tldp.org/LDP/lkmpg/2.6/html/index.html
