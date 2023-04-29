@@ -1,23 +1,28 @@
-# kernel-devel
-- How to develop a kernel module.
+# How to Make a Kernel Module
 
 ## Index
-- [AlmaLinux](#almalinux)
-- [MIRACLE LINUX](#miracle-linux)
-- [openSUSE](#opensuse)
-- [Red Hat Enterprise Linux](#red-hat-enterprise-linux)
-- [SUSE Enterprise Linux](#suse-enterprise-linux)
-- [Ubuntu](#ubuntu)
+- Red Hat Enterprise Linux and Clones
+  - [Amazon Linux](#amazon-linux)
+  - [AlmaLinux](#almalinux)
+  - [MIRACLE LINUX](#miracle-linux)
+  - [Red Hat Enterprise Linux](#red-hat-enterprise-linux)
+- SUSE
+  - [openSUSE](#opensuse)
+  - [SUSE Enterprise Linux](#suse-enterprise-linux)
 - [Link](#link)
+
+## Amazon Linux
+### Amazon Linux 2
+1. Run the following command.
+   ```sh
+   dnf install gcc make kernel-devel elfutils-libelf-devel -y
+   ```
 
 ## AlmaLinux
 ### AlmaLinux 8
 1. Run the following command.
    ```sh
-   dnf install gcc
-   dnf install make
-   dnf install kernel-devel
-   dnf install elfutils-libelf-devel
+   dnf install gcc make kernel-devel elfutils-libelf-devel -y
    ```
 1. Save the source files.
 1. Edit Makefile as below.
@@ -28,32 +33,9 @@
 
 ## MIRACLE LINUX
 ### MIRACLE LINUX 9
-1. Run the following command.
    ```sh
-   dnf install gcc
-   dnf install make
-   dnf install kernel-devel
-   dnf install elfutils-libelf-devel
+   dnf install gcc make kernel-devel elfutils-libelf-devel -y
    ```
-
-## openSUSE
-### openSUSE Leap 15.4
-1. If you have a proxy server, run the following command.
-   ```sh
-   export http_proxy=<your proxy server>
-   ```
-1. Run the following commands to install gcc and kernel-devel.
-   ```sh
-   zypper in gcc
-   zypper in kernel-devel
-   ```
-1. Save the source files.
-1. Edit Makefile as below.
-   ```
-   $(MAKE) -C /lib/modules/$(shell uname -r)/build M=$(shell pwd) modules
-   ```
-1. Run make command.
-
 ## Red Hat Enterprise Linux
 ### Red Hat Enterprise Linux 8
 1. Insert the DVD and mount it (e.g. /media).
@@ -77,15 +59,29 @@
    ```
 1. Run the following command.
    ```sh
-   dnf install gcc
-   dnf install make
-   dnf install kernel-devel
-   dnf install elfutils-libelf-devel
+   dnf install gcc make kernel-devel elfutils-libelf-devel -y
    ```
 1. Save the source files.
 1. Edit Makefile as below.
    ```
    $(MAKE) -C /lib/modules/$(shell uname -r)/build SUBDIRS=$(shell pwd) module
+   ```
+1. Run make command.
+
+## openSUSE
+### openSUSE Leap 15.4
+1. If you have a proxy server, run the following command.
+   ```sh
+   export http_proxy=<your proxy server>
+   ```
+1. Run the following commands to install gcc and kernel-devel.
+   ```sh
+   zypper in gcc kernel-devel
+   ```
+1. Save the source files.
+1. Edit Makefile as below.
+   ```
+   $(MAKE) -C /lib/modules/$(shell uname -r)/build M=$(shell pwd) modules
    ```
 1. Run make command.
 
@@ -108,8 +104,7 @@
       ```
 1. Run the following commands to install gcc and kernel-devel.
    ```sh
-   zypper in gcc
-   zypper in kernel-devel
+   zypper in gcc kernel-devel
    ```
 1. Save the source files.
 1. Edit Makefile as below.
@@ -118,10 +113,10 @@
    ```
 1. Run make command.
 
+<!--
 ## Ubuntu
 ### Ubuntu 22.04
 - FIXME
-<!--
 1. Install
    ```
    sudo apt install gcc
