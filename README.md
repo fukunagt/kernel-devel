@@ -15,7 +15,7 @@
 ### Amazon Linux 2
 1. Run the following command.
    ```sh
-   dnf install gcc make kernel-devel elfutils-libelf-devel -y
+   sudo yum install gcc make kernel-devel elfutils-libelf-devel -y
    ```
 
 ## AlmaLinux
