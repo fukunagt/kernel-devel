@@ -17,19 +17,10 @@
    ```sh
    sudo yum install gcc make kernel-devel elfutils-libelf-devel -y
    ```
-<!--
-   sudo yum install gcc make kernel-devel elfutils-libelf-devel flex bison kernel-tools-devel -y
--->
 1. Edit Makefile as below.
    ```
    $(MAKE) -C /lib/modules/$(shell uname -r)/build M=$(shell pwd) modules
    ```
-   - FIXME: I have faced the following error message.
-     ```
-       ERROR: Kernel configuration is invalid.
-              include/generated/autoconf.h or include/config/auto.conf are missing.
-              Run 'make oldconfig && make prepare' on kernel src to fix it.
-     ```
 ## AlmaLinux
 ### AlmaLinux 8
 1. Install the following packages.
