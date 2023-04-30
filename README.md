@@ -13,26 +13,39 @@
 
 ## Amazon Linux
 ### Amazon Linux 2
-1. Run the following command.
+1. Install the following packages.
    ```sh
    sudo yum install gcc make kernel-devel elfutils-libelf-devel -y
    ```
-
+<!--
+   sudo yum install gcc make kernel-devel elfutils-libelf-devel flex bison kernel-tools-devel -y
+-->
+1. Edit Makefile as below.
+   ```
+   $(MAKE) -C /lib/modules/$(shell uname -r)/build M=$(shell pwd) modules
+   ```
+   - FIXME: I have faced the following error message.
+     ```
+       ERROR: Kernel configuration is invalid.
+              include/generated/autoconf.h or include/config/auto.conf are missing.
+              Run 'make oldconfig && make prepare' on kernel src to fix it.
+     ```
 ## AlmaLinux
 ### AlmaLinux 8
-1. Run the following command.
+1. Install the following packages.
    ```sh
    dnf install gcc make kernel-devel elfutils-libelf-devel -y
    ```
 1. Save the source files.
 1. Edit Makefile as below.
    ```
-   $(MAKE) -C /lib/modules/$(shell uname -r)/build SUBDIRS=$(shell pwd) module
+   $(MAKE) -C /lib/modules/$(shell uname -r)/build M=$(shell pwd) modules
    ```
 1. Run make command.
 
 ## MIRACLE LINUX
 ### MIRACLE LINUX 9
+1. Install the following packages.
    ```sh
    dnf install gcc make kernel-devel elfutils-libelf-devel -y
    ```
@@ -57,14 +70,14 @@
    baseurl=file:///media/AppStream/
    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
    ```
-1. Run the following command.
+1. Install the following packages.
    ```sh
    dnf install gcc make kernel-devel elfutils-libelf-devel -y
    ```
 1. Save the source files.
 1. Edit Makefile as below.
    ```
-   $(MAKE) -C /lib/modules/$(shell uname -r)/build SUBDIRS=$(shell pwd) module
+   $(MAKE) -C /lib/modules/$(shell uname -r)/build M=$(shell pwd) modules
    ```
 1. Run make command.
 
@@ -74,7 +87,7 @@
    ```sh
    export http_proxy=<your proxy server>
    ```
-1. Run the following commands to install gcc and kernel-devel.
+1. Install the following packages.
    ```sh
    zypper in gcc kernel-devel
    ```
@@ -102,7 +115,7 @@
       After
       enabled=1
       ```
-1. Run the following commands to install gcc and kernel-devel.
+1. Install the following packages.
    ```sh
    zypper in gcc kernel-devel
    ```
