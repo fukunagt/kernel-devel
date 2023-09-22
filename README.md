@@ -12,6 +12,16 @@
 - [Link](#link)
 
 ## Amazon Linux
+### Amazon Linux 2023
+1. Install the following packages.
+   ```sh
+   sudo dnf install gcc make kernel-devel elfutils-libelf-devel -y
+   ```
+1. Edit Makefile as below.
+   ```
+   $(MAKE) -C /lib/modules/$(shell uname -r)/build M=$(shell pwd) modules
+   ```
+
 ### Amazon Linux 2
 1. Install the following packages.
    ```sh
@@ -21,6 +31,7 @@
    ```
    $(MAKE) -C /lib/modules/$(shell uname -r)/build M=$(shell pwd) modules
    ```
+
 ## AlmaLinux
 ### AlmaLinux 8
 1. Install the following packages.
